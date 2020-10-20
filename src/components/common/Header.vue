@@ -1,12 +1,14 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom rounded-top">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom rounded-top"
+  >
     <router-link class="navbar-brand" to="/">Stock Trader</router-link>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ">
         <li class="nav-item">
           <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-          <router-link  class="nav-link" to="/portfolio" active-class="active"
+          <router-link class="nav-link" to="/portfolio" active-class="active"
             ><a>Portfolio</a></router-link
           >
         </li>
@@ -16,6 +18,7 @@
           >
         </li>
       </ul>
+
       <ul class="nav navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="#">End Day</a></li>
         <li class="nav-item dropdown">
@@ -36,12 +39,19 @@
           </div>
         </li>
       </ul>
+      <strong class="navbar-text">Funds: {{ funds }}</strong>
     </div>
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    },
+  },
+};
 </script>
 
 <style></style>

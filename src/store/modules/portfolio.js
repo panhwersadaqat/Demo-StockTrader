@@ -10,6 +10,7 @@ const mutations = {
         stockPrice
     }) {
         const record = state.stocks.find(element => element.id == stockId);
+
         if (record) {
             record.quantity += quantity;
         } else {
@@ -38,7 +39,7 @@ const mutations = {
 }
 
 const actions = {
-    selllStock({
+    sellStock({
         commit
     }, order) {
         commit('SELL_STOCK', order);
@@ -58,7 +59,7 @@ const getters = {
         })
     },
     funds(state) {
-        return state.funds;
+        return Number(state.funds);
     }
 }
 
